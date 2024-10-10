@@ -11,7 +11,7 @@ const myInfoPage = new MyInfoPage()
 
 describe('Orange HRM Test', () => {
 
-  it.only('User Info Update - Success  ', () => {
+  it('User Info Update - Success  ', () => {
     
     loginPage.accessLoginPage()
     loginPage.loginWithAnyUser(userData.userSuccess.username, userData.userSuccess.password)
@@ -21,14 +21,9 @@ describe('Orange HRM Test', () => {
     menuPage.accessMyInfo()
 
     myInfoPage.checkEmployeeDiv()
-    myInfoPage.addPersonalDetails()
-  })
-  
-  it('Login - Fail  ', () => {
-    cy.visit('/auth/login')
-    cy.get(selectorList.usernameField).type(userData.userFail.username)
-    cy.get(selectorList.passwordField).type(userData.userFail.password)
-    cy.get(selectorList.loginButton).click()
-
+    myInfoPage.fillPersonalDetails('first Name', 'middle Name', 'last Name', 'nick Name')
+    myInfoPage.fillEmployeeDetails('employeeId', 'otherId', 'driverLicenseNumber', '2024-07-02', 'ssnNumber', 'sinNumber')
+    myInfoPage.fillStatus('2000-04-10')
+    myInfoPage.saveForm()
   })
 })
