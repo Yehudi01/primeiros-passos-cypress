@@ -35,21 +35,20 @@ class MyInfoPage {
         cy.get(this.selectorList().editEmployeeDiv)
     }
 
-    fillPersonalDetails(firstName, middleName, lastName, nickName) {
+    fillPersonalDetails(firstName, middleName, lastName,) {
         cy.get(this.selectorList().firstNameField).clear().type(firstName)
         cy.get(this.selectorList().middleNameField).clear().type(middleName)
         cy.get(this.selectorList().lastNameField).clear().type(lastName)
-        cy.get(this.selectorList().nickNameField).eq(3).clear().type(nickName)
     }
 
     fillEmployeeDetails(employeeId, otherId, driverLicenseNumber, licenseExpiryDate, ssnNumber, sinNumber) {
-        cy.get(this.selectorList().genericField).eq(4).clear().type(employeeId)
-        cy.get(this.selectorList().genericField).eq(5).clear().type(otherId)
-        cy.get(this.selectorList().genericField).eq(6).clear().type(driverLicenseNumber)
+        cy.get(this.selectorList().genericField).eq(3).clear().type(employeeId)
+        cy.get(this.selectorList().genericField).eq(4).clear().type(otherId)
+        cy.get(this.selectorList().genericField).eq(5).clear().type(driverLicenseNumber)
         cy.get(this.selectorList().dataField).eq(0).clear().type(licenseExpiryDate)
         cy.get(this.selectorList().closeDate).eq(4).click()
-        cy.get(this.selectorList().addSsnNumber).eq(8).clear().type(ssnNumber)
-        cy.get(this.selectorList().addSinNumber).eq(9).clear().type(sinNumber)
+        //cy.get(this.selectorList().addSsnNumber).eq(8).clear().type(ssnNumber)
+        //cy.get(this.selectorList().addSinNumber).eq(9).clear().type(sinNumber)
     }
 
     saveForm() {
